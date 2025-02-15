@@ -29,7 +29,7 @@ def generate_commit_message(commit_type="auto", diff_text=None):
         {diff_text}
         ```
 
-        **請用英文直接輸出 Commit Message，包含 description 也是要用英文寫，其格式如下**：
+        **請用英文直接輸出 Commit Message，包含 description 也是要用英文寫，生成時候的頭尾不要用 ` ` 包著，其格式如下**：
         ```
         <auto>(scope): <description>
         ```
@@ -53,9 +53,9 @@ def generate_commit_message(commit_type="auto", diff_text=None):
         - **描述應該包含修正的問題與解法，而不只是 "correct bug" 這種模糊詞**。
         - **不要產生與變更無關的說明**，**只輸出 commit message**。
         - **舉例**
-        - `fix(auth): 修正 JWT 驗證邏輯，避免 Token 過期後仍然能存取`
-        - `feat(api): 支援批量查詢使用者，減少 API 延遲`
-        - `refactor(database): 優化索引查詢，提升 20% 效能`
+        - fix(auth): 修正 JWT 驗證邏輯，避免 Token 過期後仍然能存取
+        - feat(api): 支援批量查詢使用者，減少 API 延遲
+        - refactor(database): 優化索引查詢，提升 20% 效能
 
         """
 
@@ -69,7 +69,7 @@ def generate_commit_message(commit_type="auto", diff_text=None):
         {diff_text}
         ```
 
-        **請用英文直接輸出 Commit Message，包含 description 也是要用英文寫，其格式如下**：
+        **請用英文直接輸出 Commit Message，包含 description 也是要用英文寫，生成時候的頭尾不要用 ` ` 包著，其格式如下**：
         ```
         {commit_type}(scope): <description>
         ```
@@ -80,9 +80,9 @@ def generate_commit_message(commit_type="auto", diff_text=None):
         - **描述應該包含修正的問題與解法，而不只是 "correct bug" 這種模糊詞**。
         - **不要產生與變更無關的說明**，**只輸出 commit message**。
         - **舉例**
-        - `fix(auth): 修正 JWT 驗證邏輯，避免 Token 過期後仍然能存取`
-        - `feat(api): 支援批量查詢使用者，減少 API 延遲`
-        - `refactor(database): 優化索引查詢，提升 20% 效能`
+        - fix(auth): 修正 JWT 驗證邏輯，避免 Token 過期後仍然能存取
+        - feat(api): 支援批量查詢使用者，減少 API 延遲
+        - refactor(database): 優化索引查詢，提升 20% 效能
 
         """
         
@@ -91,11 +91,11 @@ def generate_commit_message(commit_type="auto", diff_text=None):
         messages=[{"role": "user", "content": prompt}],
     )
 
-    # 取得 AI 回應內容，確保去除不必要的符號
+    # 取得 AI 生成的 commit message
     commit_message = response.choices[0].message.content.strip()
 
-    # 處理可能的 Markdown 格式，移除首尾的 ` 或 ``` 
+    # 強制移除可能的 Markdown 反引號 (` 或 ```)
     while commit_message.startswith("`") and commit_message.endswith("`"):
         commit_message = commit_message[1:-1].strip()
 
-    return response.choices[0].message.content.strip()
+    return commit_message
