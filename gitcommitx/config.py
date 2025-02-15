@@ -16,7 +16,7 @@ else:
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # 驗證是否成功載入
-if not OPENAI_API_KEY:
-    raise ValueError("❌ OPENAI_API_KEY 環境變數未設置！請檢查 .env.dev 檔案。")
-else:
+if OPENAI_API_KEY:
     print(f"✅ 成功載入 OPENAI_API_KEY")
+else:
+    raise ValueError("❌ OPENAI_API_KEY 環境變數未設置！請檢查 .env.dev 檔案。")
