@@ -29,9 +29,9 @@ def generate_commit_message(commit_type="auto", diff_text=None):
         {diff_text}
         ```
 
-        **請產生 Commit Message，格式如下**
+        **請用英文直接輸出 Commit Message，包含 description 也是要用英文寫，其格式如下**：
         ```
-        <type>(scope): <description>
+        <auto>(scope): <description>
         ```
 
         **Commit Message 必須符合以下 `type` 類型**
@@ -69,7 +69,7 @@ def generate_commit_message(commit_type="auto", diff_text=None):
         {diff_text}
         ```
 
-        **請直接輸出 Commit Message，格式如下**：
+        **請用英文直接輸出 Commit Message，包含 description 也是要用英文寫，其格式如下**：
         ```
         {commit_type}(scope): <description>
         ```
