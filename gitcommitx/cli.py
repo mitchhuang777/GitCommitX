@@ -21,8 +21,23 @@ def commit():
         typer.echo("❌ 沒有變更內容，請先使用 `git add` 添加檔案！")
         raise typer.Exit()
     
+    # 讓使用者選擇 commit type，使用 `typer.Choice()`
+    commit_type = typer.prompt(
+        "請選擇 Commit 類型",
+        default="auto"
+    )
+
+    valid_types = [
+        "auto", "feat", "fix", "docs", "style", "refactor",
+        "test", "chore", "build", "ci", "perf", "revert"
+    ]
+
+    while commit_type not in valid_types:
+        typer.echo("❌ 無效的類型，請選擇有效的 Commit 類型。")
+        commit_type = typer.prompt("請選擇 Commit 類型", default="auto")
+    
     typer.echo("✨ AI 正在生成 Commit Message...")
-    commit_message = generate_commit_message(diff)
+    commit_message = generate_commit_message(commit_type, diff)
     
     typer.echo(f"✅ 生成的 Commit Message: \n{commit_message}\n")
     
