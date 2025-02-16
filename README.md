@@ -1,9 +1,9 @@
 # GitCommitX
 
-### Professional Git Commit Message Generator
+## Professional Git Commit Message Generator
 GitCommitX is a CLI tool that simplifies commit message writing using **GPT-4o-mini**. It automatically generates meaningful and structured commit message, help developers maintain a clean and consistent commit history.
 
-### How it works
+## How it works
 1. Install the required packages `pip install -r requirements.txt`
 2. Generate an OpenAI API key [here](https://platform.openai.com/api-keys)
 3. Add the OpenAI API key into the `.env.dev` file
@@ -12,7 +12,7 @@ GitCommitX is a CLI tool that simplifies commit message writing using **GPT-4o-m
 6. Choose between **auto-generating** the commit message or **manually** assigning a type
 7. Review and approve the commit message before finalizing the commit
 
-### Commit Message Type Rules
+## Commit Message Type Rules
 
 `feat`: Use feat when adding a new feature.
 
@@ -36,7 +36,7 @@ GitCommitX is a CLI tool that simplifies commit message writing using **GPT-4o-m
 
 `revert`: Use revert when reverting a previous commit.
 
-### Scope Rules
+## Scope Rules
 
 Scope should be based on the filename, not the folder structure.
 
@@ -50,7 +50,7 @@ Example:
 
 `router/user.go → type(user): <description>`
 
-### License
+## License
 Permission is hereby granted, free of charge, to any individual obtaining a copy
 of this software and associated documentation files (the "Software"), to use the
 Software solely for personal, non-commercial purposes.
