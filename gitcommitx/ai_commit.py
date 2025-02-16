@@ -120,7 +120,7 @@ def generate_commit_message(commit_type="auto", diff_text=None):
         """
         
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}],
     )
 
