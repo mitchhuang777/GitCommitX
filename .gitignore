@@ -1,2 +1,6 @@
 
 .env.dev
+
+gitcommitx/__pycache__/
+
+gitcommitx.egg-info/
