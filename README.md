@@ -1,6 +1,6 @@
 # GitCommitX
 
-# Professional Git Commit Message Generator
+### Professional Git Commit Message Generator
 GitCommitX is a CLI tool that simplifies commit message writing using **GPT-4o-mini**. It automatically generates meaningful and structured commit message, help developers maintain a clean and consistent commit history.
 
 ### How it works
